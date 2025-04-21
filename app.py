@@ -11,7 +11,7 @@ products = [
 
 @app.route('/')
 def home():
-    return jsonify({'message':'測試成功'})
+    return '測試成功'
 
 @app.route('/search')
 def find():
@@ -20,7 +20,7 @@ def find():
     result = [p for p in products if p['name'].lower().startswith(kw.lower()) and (str(p['id']) == pid if pid else True)]
     #找出符合條件的裝進result
     if not result: #如果沒有資料回傳找不到資料
-        return jsonify({'message':'找不到資料'})
+        return jsonify({'message':'result not found'})
     return jsonify(result) #有的話就回傳result
 
 @app.route('/add',methods=['POST'])
@@ -28,7 +28,7 @@ def prod_add():
     data = request.get_json() #將接收到的請求變成json裝在data
     if not data or 'name' not in data or 'id' not in data:
     #如果沒有資料或資料錯誤
-        return jsonify({'message':'請確認品名及ID是否正確'})
+        return jsonify({'message':'no data or wrong name/id'})
         #回傳錯誤訊息
     products.append({
         'name':data['name'],
