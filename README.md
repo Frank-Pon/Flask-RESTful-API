@@ -19,9 +19,9 @@ Delete - 刪除 ( DELETE ) - http://127.0.0.1:5000/del/(id) - 選擇要刪除哪
 只要在連結加上對應的參數就能夠顯示對應的資料,另外POST、PUT及DELETE需要透過POST MAN之類的API測試工具進行操作
 
 ✔️python 3.12 ✔️Flask ✔️Requests ✔️jsonify
-```
-專案結構:
 
+專案結構:
+```
 interview_project
         ├─ app.py (主程式)
         ├─ README.md (程式簡介)
